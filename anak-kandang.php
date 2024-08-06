@@ -39,17 +39,15 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <?php
+<?php
  include ('header.php');
  include ('sidebar.php');
  ?>
- 
+
     <main id="main" class="main">
     <div class="pagetitle">
-        <h2>Admin</h2>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-admin.php'">+ Tambah Admin</button>
+        <h2>Data Anak Kandang</h2>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-anak-kandang.html'">+ Tambah Data Anak Kandang</button>
         <br>
         <br>
         <table class="table table-striped table-bordered">
@@ -57,29 +55,51 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Email</th>
-                    <th>Alamat</th>
+                    <th>Umur</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
-                      include('koneksi.php');
-                      $no = 1;
-                      $query = mysqli_query($conn,"SELECT * FROM users");
-                      while($row = mysqli_fetch_array($query)){
-                  ?>
-
-                  <tr>
-                      <td><?php echo $no++ ?></td>
-                      <td><?php echo $row['namalengkap'] ?></td>
-                      <td><?php echo $row['email'] ?></td>
-                      <td><?php echo $row['alamat'] ?></td>
-                      <td class="text-center">
-                        <a href="hapus-admin.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                      
+                        <td>
+                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                       </td>
                   </tr>
-
-                <?php } ?>
+                  <tr>
+                    
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      
+                 
+                      <td>
+                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                    </td>
+                </tr>
+                <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                     
+                        
+                   
+                        <td>
+                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                      </td>
+                  </tr>
+                  <tr>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -89,11 +109,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-      $(document).ready( function () {
-          $('#myTable').DataTable();
-      } );
-    </script>
     </body>
     </html>
     

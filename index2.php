@@ -1,11 +1,3 @@
-<?php
-
-if (!isset($_SESSION['logged_in'])) {
-    header('Location: index.php');
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,8 +40,7 @@ if (!isset($_SESSION['logged_in'])) {
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <?php
+<?php
  include ('header.php');
  include ('sidebar.php');
  ?>

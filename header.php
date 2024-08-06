@@ -39,13 +39,11 @@
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+<header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index1.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+      <a href="index1.php" class="logo d-flex align-items-center">
+        <img src="assets/img/logo1.jpg" alt="">
         <span class="d-none d-lg-block">Peternakan Ayam Petelur Imanuddin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -71,7 +69,7 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
-            <img src="keranjang.jpg">
+    
             <span class="badge bg-primary badge-number">4</span>
           </a><!-- End Notification Icon -->
 
@@ -225,9 +223,8 @@
               <hr class="dropdown-divider">
             </li>
 
-        
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="logout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Keluar</span>
               </a>
@@ -239,206 +236,8 @@
       </ul>
     </nav><!-- End Icons Navigation -->
 
-  </header><!-- End Header -->
-
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " href="index1.html">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Kelola Akun</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="admin.html">
-              <i class="bi bi-circle"></i><span>Admin</span>
-            </a>
-          </li>
-          <li>
-            <a href="anak-kandang.html">
-              <i class="bi bi-circle"></i><span>Anak Kandang</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Master</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="data-pakan.html">
-              <i class="bi bi-circle"></i><span>Data Pakan</span>
-            </a>
-          </li>
-          <li>
-            <a href="data-vaksin.html">
-              <i class="bi bi-circle"></i><span>Data Vaksin</span>
-            </a>
-          </li>
-          <li>
-            <a href="data-kandang.html">
-              <i class="bi bi-circle"></i><span>Data Kandang</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Peternakan</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="ayam-masuk.html">
-              <i class="bi bi-circle"></i><span>Ayam Masuk</span>
-            </a>
-          </li>
-          <li>
-            <a href="pemberian-pakan.html">
-              <i class="bi bi-circle"></i><span>Pemberian Pakan</span>
-            </a>
-          </li>
-          <li>
-            <a href="pemberian-vaksin.html">
-              <i class="bi bi-circle"></i><span>Pemberian Vaksin</span>
-            </a>
-          </li>
-          <li>
-            <a href="panen.html">
-              <i class="bi bi-circle"></i><span>Panen</span>
-            </a>
-          </li>
-          <li>
-            <a href="gagal-panen.html">
-              <i class="bi bi-circle"></i><span>Gagal Panen</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Laporan</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="laporan-ayam-masuk.html">
-              <i class="bi bi-circle"></i><span>Laporan Ayam Masuk</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Laporan Vaksin</span>
-            </a>
-          </li>
-          <li>
-            <a href="laporan-panen.html">
-              <i class="bi bi-circle"></i><span>Laporan Panen</span>
-            </a>
-          </li> 
-          <li>
-            <a href="laporan-gagal-panen.html">
-              <i class="bi bi-circle"></i><span>Laporan Gagal Panen</span>
-            </a>
-          </li> 
-          <li>
-            <a href="laporan-stok-telur.html">
-              <i class="bi bi-circle"></i><span>Laporan Stock Telur</span>
-            </a>
-          </li> 
-  </li>
-</ul>
-      </li><!-- End Forms Nav -->
-
-
-      <li class="nav-item">
-        <a class="nav-link " href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Penjualan</span>
-        </a>
-      
-  </aside><!-- End Sidebar-->
-
-  <!-- ======= Main ======= -->
-  <main id="main" class="main">
-    <div class="pagetitle">
-      <h1>Tambah Data Ayam</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index1.html">Home</a></li>
-          <li class="breadcrumb-item active">Tambah Data Ayam</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
-
-    <section class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <div class="card">
-              <div class="card-header">
-                <h4>Tambah Data Ayam</h4>
-              </div>
-              <div class="card-body">
-                <form action="proses-tambah-admin.php" method="POST">
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="username" class="form-label">Ayam Masuk ID</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="password" class="form-label">Kandang ID</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
-                  </div>
-                  <div class="row mb-2">
-                    <div class="col-md-6">
-                      <label for="username" class="form-label">Jumlah</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="password" class="form-label">Tanggal Masuk</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
-                  </div>
-                  <br>
-                
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="index1.html" class="btn btn-secondary">Batal</a>
-                </form>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main><!-- End Main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
-    <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </footer><!-- End Footer -->
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+  </header>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>

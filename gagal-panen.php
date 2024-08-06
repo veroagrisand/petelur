@@ -40,60 +40,65 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <?php
+<?php
  include ('header.php');
  include ('sidebar.php');
  ?>
- 
+
     <main id="main" class="main">
     <div class="pagetitle">
-        <h2>Admin</h2>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-admin.php'">+ Tambah Admin</button>
+        <h2>Gagal Panen</h2>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-data-gagal-panen.html'">+ Tambah Data </button>
         <br>
         <br>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Alamat</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                      include('koneksi.php');
-                      $no = 1;
-                      $query = mysqli_query($conn,"SELECT * FROM users");
-                      while($row = mysqli_fetch_array($query)){
-                  ?>
+                    <th>Gagal ID</th>
+                    <th>Kandang ID</th>
+                    <th>Jumlah</th>
+                    <th>Satuan</th>
+                    <th>Tanggal Laporan</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                </tr>
+                <tr>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                    <td>Data 7</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                </tr>
+                <tr>
+                    <td>Data 7</td>
+                    <td>Data 8</td>
+                    <td>Data 9</td>
+                    <td>Data 10</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                    <td>Data 4</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-                  <tr>
-                      <td><?php echo $no++ ?></td>
-                      <td><?php echo $row['namalengkap'] ?></td>
-                      <td><?php echo $row['email'] ?></td>
-                      <td><?php echo $row['alamat'] ?></td>
-                      <td class="text-center">
-                        <a href="hapus-admin.php?id=<?php echo $row['id'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
-                      </td>
-                  </tr>
-
-                <?php } ?>
-                </tbody>
-            </table>
-        </div>
+    </main>
     
-        </main>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-      $(document).ready( function () {
-          $('#myTable').DataTable();
-      } );
-    </script>
-    </body>
-    </html>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
