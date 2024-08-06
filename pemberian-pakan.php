@@ -48,7 +48,7 @@
     <main id="main" class="main">
     <div class="pagetitle">
         <h2>Pemberian Pakan</h2>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-ayam.html'">+ Tambah Data Ayam </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-ayam.php'">+ Tambah Data Ayam </button>
         <br>
         <br>
         <table class="table table-striped table-bordered">

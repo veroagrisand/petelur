@@ -51,7 +51,7 @@
       <h1>Tambah Data Ayam</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index1.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="index1.php">Home</a></li>
           <li class="breadcrumb-item active">Tambah Data Ayam</li>
         </ol>
       </nav>
@@ -90,7 +90,7 @@
                   <br>
                 
                   <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="index1.html" class="btn btn-secondary">Batal</a>
+                  <a href="index1.php" class="btn btn-secondary">Batal</a>
                 </form>
               </div>
               

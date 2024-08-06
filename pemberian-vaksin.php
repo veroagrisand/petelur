@@ -48,7 +48,7 @@
     <main id="main" class="main">
     <div class="pagetitle">
         <h2>Pemberian Vaksin</h2>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-pemberian-vaksin.html'">+ Tambah Data </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-pemberian-vaksin.php'">+ Tambah Data </button>
         <br>
         <br>
         <table class="table table-striped table-bordered">

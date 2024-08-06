@@ -29,20 +29,20 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
-<body>
-
 <?php
  include ('header.php');
  include ('sidebar.php');
  ?>
+<body>
+
+
 
   <!-- ======= Main Content ======= -->
   <main id="main" class="main">
     <div class="container">
         <h2 class="mb-4">Penjualan Telur</h2>
         <div class="mb-4">
-            <button type="button" class="btn btn-primary" onclick="window.location.href='tambah.html'">+ Tambah Telur</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='tambah.php'">+ Tambah Telur</button>
         </div>
         <div class="table-responsive">
             <table class="table table-striped">
@@ -63,7 +63,7 @@
                       <td>Rp 2.000</td>
                       <td>Telur bagus grade A</td>
                       <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
                           <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                       </td>
                   </tr>
@@ -73,7 +73,7 @@
                       <td>Rp 55.000</td>
                       <td>Telur bagus grade A</td>
                       <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=2'">Edit</button>
+                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=2'">Edit</button>
                           <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                       </td>
                   </tr>

@@ -48,7 +48,7 @@
     <main id="main" class="main">
     <div class="pagetitle">
         <h2>Data Kandang</h2>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-data-vaksin.html'">+ Tambah Data </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-data-vaksin.php'">+ Tambah Data </button>
         <br>
         <br>
         <table class="table table-striped table-bordered">
@@ -68,7 +68,7 @@
                        
                       
                         <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
                           <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                       </td>
                   </tr>
@@ -80,7 +80,7 @@
                      
                  
                       <td>
-                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                     </td>
                 </tr>
@@ -91,7 +91,7 @@
                         
                    
                         <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.html?id=1'">Edit</button>
+                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
                           <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                       </td>
                   </tr>
