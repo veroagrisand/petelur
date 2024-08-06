@@ -66,29 +66,71 @@
                 <h4>Tambah Data Ayam</h4>
               </div>
               <div class="card-body">
-                <form action="proses-tambah-admin.php" method="POST">
+                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
                   <div class="row mb-3">
                     <div class="col-md-6">
-                      <label for="username" class="form-label">Ayam Masuk ID</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
+                      <label for="nama_ayam" class="form-label">Nama Ayam</label>
+                      <input type="text" class="form-control" id="nama_ayam" name="nama_ayam" required>
                     </div>
                     <div class="col-md-6">
-                      <label for="password" class="form-label">Kandang ID</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
+  <label for="id_kandang" class="form-label">ID Kandang</label>
+  <select class="form-control" id="id_kandang" name="id_kandang" required>
+    <?php
+    // Connect to the database
+    include('koneksi.php');
+    $sql = "SELECT id_kandang FROM kandang";
+    $result = mysqli_query($conn, $sql);
+
+    // Create the dropdown list
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<option value='" . $row['id_kandang'] . "'>" . $row['id_kandang'] . "</option>";
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+    ?>
+  </select>
+</div>
                   </div>
                   <div class="row mb-2">
                     <div class="col-md-6">
-                      <label for="username" class="form-label">Jumlah</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
+                      <label for="jumlah_ayam_masuk" class="form-label">Jumlah</label>
+                      <input type="number" class="form-control" id="jumlah_ayam_masuk" name="jumlah_ayam_masuk" required>
                     </div>
                     <div class="col-md-6">
-                      <label for="password" class="form-label">Tanggal Masuk</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
+                      <label for="tanggalmasuk" class="form-label">Tanggal Masuk</label>
+                      <input type="date" class="form-control" id="tanggalmasuk" name="tanggalmasuk" required>
                     </div>
                   </div>
                   <br>
-                
+                  <?php
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Connect to the database
+  include('koneksi.php');
+
+  // Get the form data
+  $nama_ayam = $_POST["nama_ayam"];
+  $id_kandang = $_POST["id_kandang"];
+  $jumlah_ayam_masuk = $_POST["jumlah_ayam_masuk"];
+  $tanggalmasuk = $_POST["tanggalmasuk"];
+
+  // Insert the data into the database
+  $sql = "INSERT INTO ayam_masuk (nama_ayam, id_kandang, jumlah_ayam_masuk, tanggalmasuk) VALUES ('$nama_ayam', '$id_kandang', '$jumlah_ayam_masuk', '$tanggalmasuk')";
+  $result = mysqli_query($conn, $sql);
+
+  // Check if the data is inserted successfully
+  if ($result) {
+    echo "<script>alert('Data berhasil ditambahkan!');</script>";
+    echo "<script>window.location.href='tambah-ayam.php';</script>";
+  } else {
+    echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
+  }
+
+  // Close the database connection
+  mysqli_close($conn);
+}
+?>
                   <button type="submit" class="btn btn-primary">Simpan</button>
                   <a href="index1.php" class="btn btn-secondary">Batal</a>
                 </form>

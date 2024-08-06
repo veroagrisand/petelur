@@ -1,3 +1,11 @@
+<?php
+include('koneksi.php');
+session_start();
+if (!isset($_SESSION['namalengkap'])) {
+  header('Location: index.php'); 
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +13,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Peternakan Ayam Petelur</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +47,7 @@
 </head>
 
 <body>
-<header id="header" class="header fixed-top d-flex align-items-center">
+<header id="header" class="header fixed-top d-flex align-items-center mt-3">
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index1.php" class="logo d-flex align-items-center">
@@ -210,17 +218,17 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/nodi2.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Nodi Imanuddin</span>
+            <img src="assets/img/default.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['namalengkap']; ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Nodi Imanuddin</h6>
-              <span>Mahasiswa</span>
+              <h6><?php echo $_SESSION['namalengkap']; ?></h6>
+              <span>Admin</span>
             </li>
             <li>
-              <hr class="dropdown-divider">
+              <hr class="dropdown-divider">     
             </li>
 
             <li>

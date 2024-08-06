@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Peternakan Ayam Petelur</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -53,56 +53,32 @@
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                    <th>Ayam Masuk</th>
-                    <th>Kandang ID</th>
+                    <th>Id Ayam</th>
+                    <th>Nama Ayam</th>
+                    <th>ID Kandang</th>
                     <th>Jumlah</th>
                     <th>Tanggal Masuk</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                       
-                      
-                        <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
-                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                  <?php 
+                      include('koneksi.php');
+                      $query = mysqli_query($conn,"SELECT * FROM ayam_masuk");
+                      while($row = mysqli_fetch_array($query)){
+                  ?>
+
+                  <tr>
+                      <td><?php echo $row['id_ayam_masuk'] ?></td>
+                      <td><?php echo $row['nama_ayam'] ?></td>
+                      <td><?php echo $row['id_kandang'] ?></td>
+                      <td><?php echo $row['jumlah_ayam_masuk'] ?></td>
+                      <td><?php echo $row['tanggalmasuk'] ?></td>
+                      <td class="text-center">
+                        <a href="hapus-ayam.php?id_ayam_masuk=<?php echo $row['id_ayam_masuk'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                   </tr>
-                  <tr>
-                    
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      
-                 
-                      <td>
-                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
-                        <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                    </td>
-                </tr>
-                <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        
-                   
-                        <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
-                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                      </td>
-                  </tr>
-                  <tr>
-                    </tr>
+
+                <?php } ?>
                 </tbody>
             </table>
         </div>

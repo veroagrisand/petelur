@@ -48,55 +48,34 @@
     <main id="main" class="main">
     <div class="pagetitle">
         <h2>Data Kandang</h2>
-        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-data-vaksin.php'">+ Tambah Data </button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='tambah-data-kandang.php'">+ Tambah Data </button>
         <br>
         <br>
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>Kandang ID</th>
-                    <th>Kode Kandang</th>
+                    <th>Nama Kandang</th>
                     <th>Kapasitas</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                       
-                      
-                        <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
-                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
+                  <?php 
+                      include('koneksi.php');
+                      $query = mysqli_query($conn,"SELECT * FROM kandang");
+                      while($row = mysqli_fetch_array($query)){
+                  ?>
+
+                  <tr>
+                      <td><?php echo $row['id_kandang'] ?></td>
+                      <td><?php echo $row['nama_kandang'] ?></td>
+                      <td><?php echo $row['kapasitas'] ?></td>
+                      <td class="text-center">
+                        <a href="hapus-kandang.php?id_kandang=<?php echo $row['id_kandang'] ?>" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                   </tr>
-                  <tr>
-                    
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                     
-                 
-                      <td>
-                        <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
-                        <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                    </td>
-                </tr>
-                <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        
-                   
-                        <td>
-                          <button class="btn btn-success btn-sm" onclick="window.location.href='edit.php?id=1'">Edit</button>
-                          <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
-                      </td>
-                  </tr>
-                  <tr>
-                    </tr>
+
+                <?php } ?>
                 </tbody>
             </table>
         </div>
