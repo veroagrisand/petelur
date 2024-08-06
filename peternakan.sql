@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 05, 2024 at 03:33 PM
+-- Generation Time: Aug 06, 2024 at 04:27 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -24,6 +24,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ayam_masuk`
+--
+
+CREATE TABLE `ayam_masuk` (
+  `nama_ayam` varchar(30) NOT NULL,
+  `jumlah_ayam_masuk` int NOT NULL,
+  `tanggalmasuk` date NOT NULL,
+  `id_ayam_masuk` int NOT NULL,
+  `id_kandang` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `ayam_masuk`
+--
+
+INSERT INTO `ayam_masuk` (`nama_ayam`, `jumlah_ayam_masuk`, `tanggalmasuk`, `id_ayam_masuk`, `id_kandang`) VALUES
+('ber', 25, '2024-08-14', 1, 1),
+('butet', 200, '2024-08-20', 2, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kandang`
+--
+
+CREATE TABLE `kandang` (
+  `id_kandang` int NOT NULL,
+  `nama_kandang` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `kapasitas` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `kandang`
+--
+
+INSERT INTO `kandang` (`id_kandang`, `nama_kandang`, `kapasitas`) VALUES
+(1, 'Ayam Teletubies', 454),
+(5, 'eva', 600);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -40,16 +82,24 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `namalengkap`, `email`, `password`, `alamat`) VALUES
-(1, 'vero agrisanda', 'vero@root.com', 'ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f', 'kpliek'),
-(2, 'Vero Agrisanda', 'geexspublic@gmail.com', '640e693971ca18e8b6974ee0518c4cfd98461241484100ebbd6d262b5cddaf64', 'Jl. sawah liek, kp olo, gunung pangilun'),
-(3, 'Vero Agrisanda', 'sdfsdgublic@gmail.com', '80adc8cc78edc4a46fe03753fbbfb8031f88e79d71f2496aa991f71a4cd17c07', 'Jl. sawah liek, kp olo, gunung pangilun'),
-(4, 'csdgdfg', 'erfhhd@rooot.com', 'efe3ecd3c9d5ed31c1537a75e4851fbf1c50b7ae7a932965fd60601878592dc1', 'sdwfndsjgfsehf'),
-(5, 'cwesgrergh', 'weg@hhhh.vocm', 'f322947bdd0b90ba1ad3a934193674be49525bb663972f80f6c283560059c032', 'wefwef'),
-(6, 'gfjffyyu', 'fxggxgfx@gmail.com', 'fbca68bd4ab0816fd096700e2f62968b343631ca8b38731192a12ea95f805f16', 'fufjtu');
+(8, 'azzy', 'azzy@root.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'solok');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `ayam_masuk`
+--
+ALTER TABLE `ayam_masuk`
+  ADD PRIMARY KEY (`id_ayam_masuk`),
+  ADD UNIQUE KEY `id_kandang` (`id_kandang`);
+
+--
+-- Indexes for table `kandang`
+--
+ALTER TABLE `kandang`
+  ADD PRIMARY KEY (`id_kandang`);
 
 --
 -- Indexes for table `users`
@@ -63,10 +113,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `ayam_masuk`
+--
+ALTER TABLE `ayam_masuk`
+  MODIFY `id_ayam_masuk` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `kandang`
+--
+ALTER TABLE `kandang`
+  MODIFY `id_kandang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
