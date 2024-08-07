@@ -5,6 +5,12 @@ if (!isset($_SESSION['namalengkap'])) {
   header('Location: index.php'); 
   exit;
 }
+
+if (isset($_SESSION['level']) && $_SESSION['level'] == 'anak_kandang' && strpos($_SERVER['REQUEST_URI'], 'anak_kandang') === false) {
+  header("HTTP/1.0 403 Forbidden");
+  include('error403.php'); // include the error page
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -225,7 +231,7 @@ if (!isset($_SESSION['namalengkap'])) {
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?php echo $_SESSION['namalengkap']; ?></h6>
-              <span>Admin</span>
+              <span><?php echo $_SESSION['level']; ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">     
@@ -263,3 +269,4 @@ if (!isset($_SESSION['namalengkap'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
+  </html>

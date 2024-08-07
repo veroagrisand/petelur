@@ -45,7 +45,8 @@
  <?php
  include ('header.php');
  include ('sidebar.php');
- ?>
+ 
+?>
 
   <main id="main" class="main">
 
@@ -79,7 +80,17 @@
                       
                     </div>
                     <div class="ps-3">
-                      <h6>3016</h6>
+                    <h6>
+                        <?php
+                        include('koneksi.php');
+
+                        $sql = "SELECT SUM(jumlah_ayam_masuk) as total_ayam FROM ayam_masuk";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+
+                        echo $row['total_ayam'] . " Ekor";
+                        ?>
+                      </h6>
                      
 
                     </div>

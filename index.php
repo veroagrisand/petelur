@@ -21,7 +21,15 @@ if (isset($_POST['submit'])) {
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['namalengkap'] = $row['namalengkap'];
-        header("Location: index1.php");
+        $_SESSION['level'] = $row['level']; // store the level in the session
+
+        if ($row['level'] == 'admin') {
+            header("Location: index1.php"); // access root folder
+        } elseif ($row['level'] == 'anak_kandang') {
+            header("Location: anak_kandang/index1.php"); // access anak_kandang folder
+        } else {
+            echo "<script>alert(' Anda tidak memiliki akses!')</script>";
+        }
         exit();
     } else {
         echo "<script>alert('Email atau password Anda salah. Silakan coba lagi!')</script>";
@@ -58,4 +66,15 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
 </body>
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 </html>

@@ -1,5 +1,6 @@
 <?php
 include ('koneksi.php');
+include('anak_kandang_rule.php');
 
 $nama_ayam = $_POST['nama_ayam'];
 $jumlah_ayam = $_POST['jumlah_ayam'];
@@ -17,5 +18,3 @@ if (mysqli_query($conn, $query)) {
 
 // Tutup koneksi
 mysqli_close($conn);
-
-?>

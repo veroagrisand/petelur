@@ -1,6 +1,8 @@
 <?php
 
+
 include('koneksi.php');
+include('anak_kandang_rule.php');
 
 //get id
 $id = $_GET['id'];
@@ -13,5 +15,3 @@ if($conn->query($query)) {
 } else {
     echo "DATA GAGAL DIHAPUS!";
 }
-
-?>

@@ -43,6 +43,7 @@
 <?php
  include ('header.php');
  include ('sidebar.php');
+ include('anak_kandang_rule.php');
  ?>
 
   <main id="main" class="main">

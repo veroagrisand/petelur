@@ -43,6 +43,7 @@
 <?php
  include ('header.php');
  include ('sidebar.php');
+ include('anak_kandang_rule.php');
  ?>
 
   <!-- ======= Main ======= -->
@@ -66,41 +67,60 @@
                 <h4>Tambah Pengguna Anak Kandang</h4>
               </div>
               <div class="card-body">
-                <form action="proses-tambah-admin.php" method="POST">
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <label for="username" class="form-label">Nama Lengkap</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
-                  </div>
-                  <div class="row mb-2">
-                    <div class="col-md-6">
-                      <label for="username" class="form-label">No. Handphone</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="password" class="form-label">Jenis Kelamin</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
-                  </div>
-                  <div class="row mb-1">
-                    <div class="col-md-6">
-                      <label for="username" class="form-label">Username</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="password" class="form-label">Alamat</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
-                  </div>
-                  <br>
-                
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="index1.php" class="btn btn-secondary">Batal</a>
+              <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="namalengkap" class="form-label">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="namalengkap" name="namalengkap" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" required>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-6">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="alamat" class="form-label">Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" required>
+                </div>
+              </div>
+              <br>
+                  <?php
+              include ('koneksi.php');
+              if (isset($_POST['submit'])) {
+                $namalengkap = $_POST['namalengkap'];
+                $email = $_POST['email'];
+                $password = hash('sha256', $_POST['password']); // Hash the input password using SHA-256
+                $cpassword = hash('sha256', $_POST['password']); // Hash the input confirm password using SHA-256
+                $alamat = $_POST['alamat'];
+                $level = $_POST['level'] = 'anak_kandang';
+
+                if ($password == $cpassword) {
+                  $sql = "SELECT * FROM users WHERE email='$email'";
+                  $result = mysqli_query($conn, $sql);
+                  if (!$result->num_rows > 0) {
+                    $sql = "INSERT INTO users (namalengkap, email, password, alamat, level)
+                            VALUES ('$namalengkap', '$email', '$password', '$alamat', '$level')";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result) {
+                      echo "<script>alert('Selamat, Penambahan berhasil!')</script>";
+                      
+                      
+                    } else {
+                      echo "<script>alert('Woops! Terjadi kesalahan.')</script>";
+                    }
+                  } else {
+                    echo "<script>alert('Woops! Email Sudah Terdaftar.')</script>";
+                  }
+                }
+              }
+             ?>
+                  <button type="submit" class="btn btn-success" name="submit">SIMPAN</button>
+                  <button type="reset" class="btn btn-warning">RESET</button>
                 </form>
               </div>
               
@@ -123,6 +143,17 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 </body>
 
 </html>

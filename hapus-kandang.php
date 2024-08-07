@@ -1,4 +1,5 @@
 <?php
+include('anak_kandang_rule.php');
 
 include('koneksi.php');
 
@@ -13,5 +14,3 @@ if($conn->query($query)) {
 } else {
     echo "DATA GAGAL DIHAPUS!";
 }
-
-?>
