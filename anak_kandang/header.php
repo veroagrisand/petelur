@@ -1,15 +1,16 @@
 <?php
-include('../koneksi.php');
-  session_start();
+include('koneksi.php');
+session_start();
+if (!isset($_SESSION['namalengkap'])) {
+  header('Location: /../index.php'); 
+  exit;
+}
 
-  if (isset($_GET['logout']) && isset($_SESSION['level'])) {
-    // Destroy the session
-    session_destroy();
-
-    // Redirect to the index page
-    header("Location: ../index.php");
-    exit();
-  }
+if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin' && strpos($_SERVER['REQUEST_URI'], 'admin') === false) {
+  header("HTTP/1.0 403 Forbidden");
+  include('error403.php'); // include the error page
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -237,7 +238,7 @@ include('../koneksi.php');
             </li>
 
             <li>
-            <a class="dropdown-item d-flex align-items-center" href="<?php echo $_SERVER['PHP_SELF']; ?>?logout=true">
+            <a class="dropdown-item d-flex align-items-center" href="logout.php">
     <i class="bi bi-box-arrow-right"></i>
     <span>Keluar</span>
   </a>

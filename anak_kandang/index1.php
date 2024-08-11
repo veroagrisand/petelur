@@ -45,6 +45,7 @@
  <?php
  include ('header.php');
  include ('sidebar.php');
+ include('admin_rule.php');
  ?>
 
   <main id="main" class="main">
