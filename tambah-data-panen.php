@@ -69,36 +69,85 @@
               <div class="card-body">
                 <form action="proses-tambah-admin.php" method="POST">
                   <div class="row mb-3">
+                  <div class="col-md-6">
+  <label for="id_kandang" class="form-label">ID Kandang</label>
+  <select class="form-control" id="id_kandang" name="id_kandang" required>
+    <?php
+    // Connect to the database
+    include('koneksi.php');
+    $sql = "SELECT id_kandang FROM kandang";
+    $result = mysqli_query($conn, $sql);
 
+    // Create the dropdown list
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<option value='" . $row['id_kandang'] . "'>" . $row['id_kandang'] . "</option>";
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+    ?>
+  </select>
+</div>
                     <div class="col-md-6">
-                      <label for="password" class="form-label">Panen ID</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
-                    </div>
-                  </div>
-                  <div class="row mb-2">
-                    <div class="col-md-6">
-                      <label for="username" class="form-label">Kandang ID</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="password" class="form-label">Jumlah</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
+                      <label for="jumlah_panen" class="form-label">Jumlah</label>
+                      <input type="number" class="form-control" id="jumlah_panen" name="jumlah_panen" required>
                     </div>
                   </div>
                   <div class="row mb-1">
                     <div class="col-md-6">
-                      <label for="username" class="form-label">Ukuran</label>
-                      <input type="text" class="form-control" id="username" name="username" required>
+                      <label for="ukuran" class="form-label">Ukuran</label>
+                      <select class="form-select" id="ukuran" name="ukuran" required>
+    <?php
+    // Connect to the database
+    include('koneksi.php');
+    $sql = "SELECT ukuran FROM ukuran_panen";
+    $result = mysqli_query($conn, $sql);
+
+    // Create the dropdown list
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<option value='" . $row['ukuran'] . "'>" . $row['ukuran'] . "</option>";
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+    ?>
+  </select>
                     </div>
                     <div class="col-md-6">
-                      <label for="password" class="form-label">Tanggal Panen</label>
-                      <input type="text" class="form-control" id="password" name="password" required>
+                      <label for="tanggalpanen" class="form-label">Tanggal Panen</label>
+                      <input type="date" class="form-control" id="tanggalpanen" name="tanggalpanen" required>
                     </div>
                   </div>
                   <br>
-                
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                  <a href="index1.php" class="btn btn-secondary">Batal</a>
+                  <?php
+include ('koneksi.php');
+
+if (isset($_POST['submit'])) {
+  $nama_kandang = $_POST['nama_kandang'];
+  $kapasitas = $_POST['kapasitas'];
+
+  $stmt = $conn->prepare("SELECT * FROM kandang WHERE nama_kandang = ?");
+  $stmt->bind_param("s", $nama_kandang);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if (!$result->num_rows) {
+    $stmt = $conn->prepare("INSERT INTO kandang ( nama_kandang, kapasitas) VALUES (?, ?)");
+    $stmt->bind_param("ss", $nama_kandang, $kapasitas);
+    $stmt->execute();
+
+    if ($stmt->affected_rows > 0) {
+      echo "<script>alert('Selamat, Data berhasil ditambah!')</script>";
+    } else {
+      echo "<script>alert('Woops! Terjadi kesalahan.')</script>";
+    }
+  } else {
+    echo "<script>alert('Nama kandang sudah ada!')</script>";
+  }
+}
+?>
+              <button type="submit" class="btn btn-success" name="submit">SIMPAN</button>
+              <button type="reset" class="btn btn-warning">RESET</button>
                 </form>
               </div>
               
