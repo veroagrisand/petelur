@@ -8,3 +8,4 @@ if (isset($_SESSION['level']) && $_SESSION['level'] == 'anak_kandang') {
 }
 
 //include(anak_kandang_rule.php);
+// aturan jika anak kadang mengakses halaman admin maka akan diarahkan ke halaman folder anak kandang
